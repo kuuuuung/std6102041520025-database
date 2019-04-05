@@ -7,7 +7,7 @@ create table property_for_rent(
 	city text not null,
     	postcode varchar(11),
 	type varchar(100),
-	room intr(10) ,
+	room int(10) ,
 	owner_no varchar(5) not null,
 	staff_no varchar(5) ,
 	branch_no varchar(5) not null
