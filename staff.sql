@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 10, 2019 at 04:24 PM
+-- Generation Time: Apr 10, 2019 at 04:25 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -23,17 +23,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `client`
+-- Table structure for table `staff`
 --
 
-CREATE TABLE `client` (
+CREATE TABLE `staff` (
   `id` int(11) NOT NULL,
-  `client_no` varchar(5) NOT NULL,
+  `staff_no` varchar(5) NOT NULL,
   `first_name` varchar(300) NOT NULL,
   `last_name` varchar(300) NOT NULL,
-  `telephone` varchar(11) NOT NULL,
-  `pref_type` varchar(100) DEFAULT NULL,
-  `max_rent` int(7) DEFAULT NULL
+  `position` varchar(200) DEFAULT NULL,
+  `sex` varchar(2) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `salary` int(7) DEFAULT NULL,
+  `branch_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -41,20 +43,31 @@ CREATE TABLE `client` (
 --
 
 --
--- Indexes for table `client`
+-- Indexes for table `staff`
 --
-ALTER TABLE `client`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `staff`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `branch_id_idx` (`branch_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `client`
+-- AUTO_INCREMENT for table `staff`
 --
-ALTER TABLE `client`
+ALTER TABLE `staff`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `staff`
+--
+ALTER TABLE `staff`
+  ADD CONSTRAINT `fk_staff_branch_id` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
