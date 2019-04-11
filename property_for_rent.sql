@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 10, 2019 at 04:24 PM
+-- Generation Time: Apr 11, 2019 at 02:24 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -29,9 +29,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `property_for_rent` (
   `id` int(11) NOT NULL,
   `property_no` varchar(5) NOT NULL,
-  `street` text NOT NULL,
-  `city` text NOT NULL,
-  `postcode` varchar(11) DEFAULT NULL,
   `type` varchar(100) DEFAULT NULL,
   `room` int(10) DEFAULT NULL,
   `owner_id` int(11) NOT NULL,
